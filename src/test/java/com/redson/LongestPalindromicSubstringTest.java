@@ -12,6 +12,9 @@ public class LongestPalindromicSubstringTest {
     @Test
     public void test() {
         LongestPalindromicSubstring lps = new LongestPalindromicSubstring();
-        assertEquals("abc", lps.longestPalindromicSubstring("abc"));
+        assertEquals("cddc", lps.longestPalindrome("abcddc"));
+        assertEquals("a", lps.longestPalindrome("a"));
+        assertEquals("aaaaaaaa", lps.longestPalindrome("aaaaaaaa"));
+        assertEquals("ababa", lps.longestPalindrome("avaababaccaca"));
     }
 }
