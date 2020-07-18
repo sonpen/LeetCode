@@ -1,6 +1,8 @@
 package com.redson;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -10,16 +12,17 @@ public class LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
         int ans = 0, i = 0, j = 0;
         int n = s.length();
-        Set<Character> set = new HashSet<>();
+        Map<Character, Integer> m = new HashMap<>();
         while(i < n && j < n ) {
-            if( !set.contains(s.charAt(j))) {
-                set.add(s.charAt(j));
+            if( !m.containsKey(s.charAt(j))) {
+                m.put(s.charAt(j), j);
                 j++;
                 ans = Math.max(ans, j-i);
             }
             else {
-                set.remove(s.charAt(i));
-                i++;
+                i = m.get(s.charAt(j)) +1;
+                j = i;
+                m.clear();
             }
         }
 
