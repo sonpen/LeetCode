@@ -10,20 +10,15 @@ import java.util.Set;
  */
 public class LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
-        int ans = 0, i = 0, j = 0;
+        int ans = 0, i = 0;
         int n = s.length();
         Map<Character, Integer> m = new HashMap<>();
-        while(i < n && j < n ) {
-            if( !m.containsKey(s.charAt(j))) {
-                m.put(s.charAt(j), j);
-                j++;
-                ans = Math.max(ans, j-i);
+        for(int j = 0; j < n; j++) {
+            if( m.containsKey(s.charAt(j))) {
+                i = Math.max(m.get(s.charAt(j))+1, i);
             }
-            else {
-                i = m.get(s.charAt(j)) +1;
-                j = i;
-                m.clear();
-            }
+            ans = Math.max(ans, j-i+1);
+            m.put(s.charAt(j), j);
         }
 
         return ans;

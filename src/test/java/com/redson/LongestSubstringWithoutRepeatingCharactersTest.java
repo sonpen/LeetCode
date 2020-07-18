@@ -12,6 +12,7 @@ public class LongestSubstringWithoutRepeatingCharactersTest {
     @Test
     public void test() {
         LongestSubstringWithoutRepeatingCharacters l = new LongestSubstringWithoutRepeatingCharacters();
+        assertEquals(2, l.lengthOfLongestSubstring("abba"));
         assertEquals(3, l.lengthOfLongestSubstring("abcabcbb"));
         assertEquals(1, l.lengthOfLongestSubstring("bbbbbbb"));
         assertEquals(3, l.lengthOfLongestSubstring("pwwkew"));
